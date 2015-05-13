@@ -172,12 +172,12 @@ namespace roslyncompiler
             SyntaxTree tree;
              foreach (var project in workspace.CurrentSolution.Projects)
                 {
-                    if (!project.DisplayName.Contains("Service"))
+                    if (!project.DisplayName.Contains(""))
                     {
                         continue;
                     }
 
-                    if (project.DisplayName.Contains("ServiceProxy"))
+                    if (project.DisplayName.Contains(""))
                     {
                         continue;
                     }
@@ -455,7 +455,7 @@ namespace roslyncompiler
 
         public void ParseInvocationSyntax(InvocationExpressionSyntax invocationExpression)
         {
-            if (invocationExpression.Expression.ToString().Contains("HandleExternalServiceCall"))
+            if (invocationExpression.Expression.ToString().Contains(""))
             {
                 ResolveHandleExternalServiceCall(invocationExpression);
                 return;
@@ -484,7 +484,7 @@ namespace roslyncompiler
             switch (expressionSyntax.Kind())
             {
                 case SyntaxKind.InvocationExpression:
-                    if (((InvocationExpressionSyntax)expressionSyntax).Expression.ToString().Contains("HandleExternalServiceCall"))
+                    if (((InvocationExpressionSyntax)expressionSyntax).Expression.ToString().Contains(""))
                     {
                         ResolveHandleExternalServiceCall((InvocationExpressionSyntax)expressionSyntax);
                         return;
